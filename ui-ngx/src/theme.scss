@@ -19,27 +19,27 @@
 
 @include mat-core();
 
-$tb-primary-color: #305680;
-$tb-secondary-color: #527dad;
-$tb-hue3-color: #a7c1de;
+$tb-primary-color: #308079;
+$tb-secondary-color: #52ad99;
+$tb-hue3-color: #a7dade;
 
-$tb-dark-primary-color: #9fa8da;
+$tb-dark-primary-color: #9fdacb;
 
 $tb-mat-indigo: (
-  50: #e8eaf6,
-  100: #c5cae9,
-  200: #9fa8da,
-  300: #7986cb,
-  400: #5c6bc0,
+  50: #e8f6f3,
+  100: #c5e9e3,
+  200: #9fdada,
+  300: #79cbc7,
+  400: #5cc0bb,
   500: $tb-primary-color,
   600: $tb-secondary-color,
-  700: #303f9f,
-  800: #283593,
-  900: #1a237e,
+  700: #309f96,
+  800: #28937c,
+  900: #1a7e71,
   A100: $tb-hue3-color,
-  A200: #536dfe,
-  A400: #3d5afe,
-  A700: #304ffe,
+  A200: #53fef0,
+  A400: #3dfee4,
+  A700: #30feed,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
@@ -76,20 +76,20 @@ $primary: mat-color($tb-primary);
 $accent: mat-color($tb-accent);
 
 $tb-dark-mat-indigo: (
-  50: #e8eaf6,
-  100: #c5cae9,
-  200: #9fa8da,
-  300: #7986cb,
-  400: #5c6bc0,
+  50: #e8f6f4,
+  100: #c5e9e4,
+  200: #9fd8da,
+  300: #79cbc4,
+  400: #5cc0bb,
   500: $tb-dark-primary-color,
   600: $tb-secondary-color,
-  700: #303f9f,
+  700: #309f9a,
   800: $tb-primary-color,
-  900: #1a237e,
+  900: #1a7e76,
   A100: $tb-hue3-color,
-  A200: #536dfe,
-  A400: #3d5afe,
-  A700: #304ffe,
+  A200: #53dcfe,
+  A400: #3df1fe,
+  A700: #30feed,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
