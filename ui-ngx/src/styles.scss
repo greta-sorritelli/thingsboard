@@ -22,7 +22,7 @@
 @import './scss/animations';
 @import './scss/mixins';
 @import './scss/fonts';
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url(//fonts.googleapis.com/css2?family=Josefin+Sans&display=swap);
 
 body, html {
   height: 100%;
@@ -58,11 +58,6 @@ tb-root {
 /***************
  * TYPE DEFAULTS
  ***************/
-
- @font-face {
-  font-family: 'Josefin Sans';
-  src: url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap') format('opentype');
-}
 
 body,
 button,
