@@ -86,6 +86,7 @@
     "react-dropzone": "^11.2.0",
     "reactcss": "^1.2.3",
     "rxjs": "~6.6.7",
+    "sass-google-fonts": "^1.0.1",
     "schema-inspector": "^2.0.1",
     "screenfull": "^5.1.0",
     "split.js": "^1.6.4",

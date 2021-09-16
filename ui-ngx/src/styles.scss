@@ -15,15 +15,17 @@
  */
 /* You can add global styles to this file, and also import other style files */
 
-@import '~typeface-roboto/index.css';
-@import '~font-awesome/css/font-awesome.min.css';
+//@import '~typeface-roboto/index.css';
+//@import '~font-awesome/css/font-awesome.min.css';
 @import 'theme.scss';
 @import './scss/constants';
 @import './scss/animations';
 @import './scss/mixins';
 @import './scss/fonts';
 @import "node_modules/sass-google-fonts/src/GoogleFonts.scss";
-@import url(//fonts.googleapis.com/css2?family=Josefin+Sans&display=swap);
+//@import url(//fonts.googleapis.com/css2?family=Josefin+Sans&display=swap);
+
+@include google-font( 'Josefin Sans' );
 
 body, html {
   height: 100%;
@@ -37,6 +39,8 @@ body, html {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Josefin Sans';
 }
 
 body {
@@ -82,8 +86,9 @@ a {
   color: #10c8b9;
   text-decoration: none;
   border-bottom: 1px solid rgba(64, 178, 178, 0.25);
-
   transition: border-bottom .35s;
+
+  font-family: 'Josefin Sans';
 }
 
 a:hover,
@@ -143,6 +148,7 @@ strong {
 blockquote {
   padding-left: 16px;
   margin-left: 0;
+  font-family: 'Josefin Sans';
   font-style: italic;
   border-left: 3px solid rgba(0, 0, 0, .12);
 }
@@ -202,6 +208,7 @@ section.tb-footer-buttons {
 }
 
 label {
+  font-family: 'Josefin Sans';
   &.tb-title {
     padding-bottom: 15px;
     font-size: 13px;
@@ -281,7 +288,8 @@ pre.tb-highlight {
     box-sizing: border-box;
     display: inline-block;
     padding: 0;
-    font-family: monospace;
+    font-family: 'Josefin Sans';
+    //font-family: monospace;
     font-size: 16px;
     font-weight: 700;
     color: #303030;
@@ -352,6 +360,7 @@ pre.tb-highlight {
 }
 
 mat-label {
+  font-family: 'Josefin Sans';
   &.tb-title {
     font-size: 13px;
     font-weight: 400;
