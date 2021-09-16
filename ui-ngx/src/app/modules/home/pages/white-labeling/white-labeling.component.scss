@@ -2,24 +2,26 @@
   margin: 8px;
 }
 
-#title {
+.title {
   font-size: 24px;
 }
 
+p {
+  font-size: smaller;
+}
+
 #save {
-    float: right;
+  float: right;
 }
 
 .drop-zone {
   max-width: 200px;
-//   margin-left: 100px;
   height: 200px;
   padding: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
   font-weight: 500;
   font-size: 20px;
   cursor: pointer;
@@ -28,12 +30,20 @@
   border-radius: 10px;
 }
 
+#button {
+  width: 200px;
+  height: 200px;
+
+}
+
 .drop-zone--over {
   border-style: solid;
 }
 
 .drop-zone__input {
-  display: none;
+//   width: 200px;
+//   height: 200px;
+    display: none;
 }
 
 .drop-zone__thumb {

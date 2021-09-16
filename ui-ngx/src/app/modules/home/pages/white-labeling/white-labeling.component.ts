@@ -12,4 +12,8 @@ export class WhiteLabelingComponent implements OnInit {
   ngOnInit(): void {}
 
   save() {}
+
+  // uploadFile($event) {
+  //   console.log($event.target.files[0]);
+  // }
 }
