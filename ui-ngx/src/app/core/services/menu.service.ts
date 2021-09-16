@@ -349,6 +349,13 @@ export class MenuService {
       },
       {
         id: guid(),
+        name: 'White Labeling',
+        type: 'link',
+        path: '/white-labeling',
+        icon: 'brush',
+      },
+      {
+        id: guid(),
         name: 'admin.system-settings',
         type: 'toggle',
         path: '/settings',
@@ -370,7 +377,7 @@ export class MenuService {
             icon: 'folder'
           }
         ]
-      }
+      },
     );
     return sections;
   }
@@ -487,6 +494,16 @@ export class MenuService {
             name: 'api-usage.api-usage',
             icon: 'insert_chart',
             path: '/usage'
+          }
+        ]
+      },
+      {
+        name: 'White Labeling',
+        places: [
+          {
+            name: 'White Labeling',
+            icon: 'brush',
+            path: '/white-labeling'
           }
         ]
       },
