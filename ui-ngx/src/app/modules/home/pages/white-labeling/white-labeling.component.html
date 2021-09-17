@@ -5,16 +5,18 @@
       <p>Cambia il logo per i tenant</p>
       <form [formGroup]="whiteLabel" formGroupName="whiteLabel" action="#">
         <fieldset>
-          <input
-            type="file"
-            name="file"
-            accept="image/*"
-            id="file"
-            class="inputfile"
-            (change)="onImageChange($event)"
-            formControlName="image"
-          />
-          <label for="file" textWrap="true">{{ labelText }}</label>
+          <div id="square" (dragover)="onDragOver($event)" (drop)="onDropSuccess($event)">
+            <input
+              type="file"
+              name="file"
+              accept="image/*"
+              id="file"
+              class="inputfile"
+              (change)="onImageChange($event)"
+              formControlName="image"
+            />
+            <label for="file" textWrap="true">{{ labelText }}</label>
+          </div>
           <button
             (click)="upload()"
             [disabled]="!whiteLabel.valid"
@@ -24,7 +26,9 @@
             color="primary"
             type="submit"
             class="mat-focus-indicator mat-button mat-raised-button mat-button-base mat-primary"
-          >Salva</button>
+          >
+            Salva
+          </button>
         </fieldset>
       </form>
     </mat-card-title>
