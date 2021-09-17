@@ -564,6 +564,11 @@
         "select-state": "Seleziona stato target",
         "state-controller": "Stato controller"
     },
+
+    "white-labeling":{
+        "white-labeling": "White Labeling"
+    },
+    
     "datakey": {
         "settings": "Impostazioni",
         "advanced": "Avanzate",

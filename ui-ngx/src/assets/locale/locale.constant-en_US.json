@@ -2428,7 +2428,7 @@
         "resource-library-details": "Resource details",
         "resource-type": "Resource type",
         "resources-library": "Resources library",
-        "search": "Search resources",
+        "search": "Search resources", 
         "selected-resources": "{ count, plural, 1 {1 resource} other {# resources} } selected",
         "system": "System",
         "title": "Title",
@@ -2961,6 +2961,11 @@
         "open-widgets-bundle": "Open widgets bundle",
         "loading-widgets-bundles": "Loading widgets bundles..."
     },
+
+    "white-labeling":{
+        "white-labeling": "White Labeling"
+    },
+
     "widget-config": {
         "data": "Data",
         "settings": "Settings",

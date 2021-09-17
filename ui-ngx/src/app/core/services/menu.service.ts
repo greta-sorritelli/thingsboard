@@ -349,7 +349,7 @@ export class MenuService {
       },
       {
         id: guid(),
-        name: 'White Labeling',
+        name: 'white-labeling.white-labeling',
         type: 'link',
         path: '/white-labeling',
         icon: 'brush',
@@ -498,10 +498,10 @@ export class MenuService {
         ]
       },
       {
-        name: 'White Labeling',
+        name: 'white-labeling.white-labeling',
         places: [
           {
-            name: 'White Labeling',
+            name: 'white-labeling.white-labeling',
             icon: 'brush',
             path: '/white-labeling'
           }
