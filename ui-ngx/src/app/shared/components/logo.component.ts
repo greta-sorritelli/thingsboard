@@ -22,13 +22,19 @@ import { Component } from "@angular/core";
   styleUrls: ["./logo.component.scss"],
 })
 export class LogoComponent {
+
+  static getLogoComponent() {
+    if (this == null) return new LogoComponent();
+    else return this;
+  }
+
   logo = "assets/logo_title_white.svg";
 
   gotoThingsboard(): void {
     window.open("https://thingsboard.io", "_blank");
   }
 
-  // changeLogo(name: string) {
-  //   this.logo = "assets/" + name;
-  // }
+  changeLogo(name: string) {
+    this.logo = "assets/" + name;
+  }
 }

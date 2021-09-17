@@ -27,6 +27,8 @@ import { AppComponent } from './app.component';
 import { DashboardRoutingModule } from '@modules/dashboard/dashboard-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ReactiveFormsModule } from "@angular/forms";
+
 const routes: Routes = [
   { path: '**',
     redirectTo: 'home'
@@ -53,7 +55,8 @@ export class PageNotFoundRoutingModule { }
     LoginModule,
     HomeModule,
     DashboardRoutingModule,
-    PageNotFoundRoutingModule
+    PageNotFoundRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

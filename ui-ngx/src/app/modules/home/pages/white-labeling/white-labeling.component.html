@@ -3,32 +3,28 @@
     <p class="title">Preferenze di stile</p>
     <mat-card-title>
       <p>Cambia il logo per i tenant</p>
-      <form action="">
+      <form [formGroup]="whiteLabel" formGroupName="whiteLabel" action="#">
         <fieldset>
-          <div class="drop-zone">
-            <input
-            id="button"
-              type="file"
-              accept="image/png, image/jpeg, image/svg"
-              name="myFile"
-              class="drop-zone__input"
-            />
-            <span class="drop-zone__prompt"
-              >Drop file here or click to upload</span
-            >
-          </div>
+          <input
+            type="file"
+            name="file"
+            accept="image/*"
+            id="file"
+            class="inputfile"
+            (change)="onImageChange($event)"
+            formControlName="image"
+          />
+          <label for="file" textWrap="true">{{ labelText }}</label>
           <button
+            (click)="upload()"
+            [disabled]="!whiteLabel.valid"
             id="save"
             mat-button=""
             mat-raised-button=""
             color="primary"
             type="submit"
-            class="mat-focus-indicator mat-button mat-raised-button mat-button-base mat-primary mat-button-disabled"
-          >
-            <span class="mat-button-wrapper">Salva</span
-            ><span matripple="" class="mat-ripple mat-button-ripple"></span
-            ><span class="mat-button-focus-overlay"></span>
-          </button>
+            class="mat-focus-indicator mat-button mat-raised-button mat-button-base mat-primary"
+          >Salva</button>
         </fieldset>
       </form>
     </mat-card-title>
