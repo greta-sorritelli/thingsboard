@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { LogoComponent } from "@app/shared/components/logo.component";
 import { FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
-import { FormControl, FormGroup } from "@material-ui/core";
+
 
 @Component({
   selector: "tb-white-labeling",
@@ -10,8 +10,10 @@ import { FormControl, FormGroup } from "@material-ui/core";
   styleUrls: ["./white-labeling.component.scss"],
 })
 export class WhiteLabelingComponent implements OnInit {
-
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
+
+  logoC = LogoComponent.getInstance();
+
   ngOnInit(): void {}
 
   labelText = "Drop file here or click to upload";
@@ -51,7 +53,7 @@ export class WhiteLabelingComponent implements OnInit {
     try {
       reader.readAsDataURL(file);
     } catch (error) {
-      this.labelText = "Errore, riprova."
+      this.labelText = "Errore, riprova.";
     }
     var promise = new Promise(function (resolve) {
       reader.onload = () => {
@@ -61,20 +63,20 @@ export class WhiteLabelingComponent implements OnInit {
     let res = "";
     var thenedPromise = promise.then(function (value) {
       res = value as string;
-    }); 
+    });
     await thenedPromise;
     this.imgFile = res;
   }
 
   upload() {
     console.log(this.whiteLabel.value);
+    console.log(this.logoC.logoPath);
+    
     this.httpClient
-      .post("http://localhost:8888/file_upload.java", this.whiteLabel.value)
+      .post("http://localhost:4200/java_api/file_upload.java", this.imgFile)
       .subscribe((response) => {
         alert("Image has been uploaded.");
       });
+    this.logoC.changeLogo(this.labelText);
   }
-
-  // changeLogo() {
-  // }
 }

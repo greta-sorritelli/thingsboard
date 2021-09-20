@@ -23,9 +23,13 @@ import { Component } from "@angular/core";
 })
 export class LogoComponent {
 
-  static getLogoComponent() {
-    if (this == null) return new LogoComponent();
-    else return this;
+  private static instance: LogoComponent;
+
+  public static getInstance(): LogoComponent {
+    if (!LogoComponent.instance) {
+      LogoComponent.instance = new LogoComponent();
+    }
+    return LogoComponent.instance;
   }
 
   logo = "assets/logo_title_white.svg";
@@ -37,4 +41,9 @@ export class LogoComponent {
   changeLogo(name: string) {
     this.logo = "assets/" + name;
   }
+
+  public get logoPath() : string {
+    return this.logo;
+  }
+  
 }
