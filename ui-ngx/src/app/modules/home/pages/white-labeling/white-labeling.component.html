@@ -1,11 +1,15 @@
-<div>
+<div >
   <mat-card id="card">
     <p class="title">Preferenze di stile</p>
     <mat-card-title>
       <p>Cambia il logo per i tenant</p>
-      <form [formGroup]="whiteLabel" formGroupName="whiteLabel" action="#">
+      <form [formGroup]="whiteLabel" action="#">
         <fieldset>
-          <div id="square" (dragover)="onDragOver($event)" (drop)="onDropSuccess($event)">
+          <div
+            id="square"
+            (dragover)="onDragOver($event)"
+            (drop)="onDropSuccess($event)"
+          >
             <input
               type="file"
               name="file"
@@ -13,7 +17,7 @@
               id="file"
               class="inputfile"
               (change)="onImageChange($event)"
-              formControlName="image"
+              formControlName="imgSrc"
             />
             <label for="file" textWrap="true">{{ labelText }}</label>
           </div>

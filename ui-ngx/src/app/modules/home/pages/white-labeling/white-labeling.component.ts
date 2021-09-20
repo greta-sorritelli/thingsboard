@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { LogoComponent } from "@app/shared/components/logo.component";
 import { FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
+import { FormControl, FormGroup } from "@material-ui/core";
 
 @Component({
   selector: "tb-white-labeling",
@@ -9,89 +10,60 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./white-labeling.component.scss"],
 })
 export class WhiteLabelingComponent implements OnInit {
+
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
   ngOnInit(): void {}
 
   labelText = "Drop file here or click to upload";
-  imgFile: string;
+  imgFile = "";
 
   whiteLabel = this.fb.group({
-    image: ["", Validators.required],
+    imgSrc: ["", Validators.required],
   });
 
-  // get uf() {
-  //   return this.whiteLabel.controls;
-  // }
-
-  // processFile(event) {
-  //   var img = this.whiteLabel.controls["image"].value;
-  //   this.labelText = img;
-  //   console.log(img);
-  //   event.preventDefault();
-  // }
-
+  // From drag and drop
   onDragOver(event) {
     event.preventDefault();
   }
 
-  // From drag and drop
-  async onDropSuccess(event) {
+  onDropSuccess(event) {
     event.preventDefault();
-    // await this.getBase64(event.dataTransfer.files[0]);
-    await this.onImageLeft(event.dataTransfer.files[0]);
+    this.onImageLeft(event.dataTransfer.files[0]);
   }
 
-  onImageLeft(file: File) {
-
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.imgFile = reader.result as string;
-      this.whiteLabel.patchValue({
-        imgSrc: reader.result,
-      });
-      var img = this.whiteLabel.controls["image"].value;
-      this.labelText = img.replace(/^.*\\/, "");
-      console.log("1 " + this.imgFile);
-    };
-    console.log("2 " + this.imgFile);
-  }
-
-  getBase64(file) {
-    return new Promise(function (resolve) {
-      var reader = new FileReader();
-      reader.onload = () => {
-        resolve(reader.result);
-        this.imgFile = reader.result as string;
-        this.whiteLabel.patchValue({
-          imgSrc: reader.result,
-        });
-      };
-      reader.readAsDataURL(file);
-      var img = this.whiteLabel.controls["image"].value;
-      this.labelText = img.replace(/^.*\\/, "");
-    });
+  async onImageLeft(file: File) {
+    await this.getBase64(file);
+    this.labelText = file.name;
   }
 
   // From click
-  onImageChange(e) {
-    var img = this.whiteLabel.controls["image"].value;
-    this.labelText = img.replace(/^.*\\/, "");
-
-    const reader = new FileReader();
-
+  async onImageChange(e) {
     if (e.target.files && e.target.files.length) {
-      const [file] = e.target.files;
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.imgFile = reader.result as string;
-        this.whiteLabel.patchValue({
-          imgSrc: reader.result,
-        });
-        console.log("1 " + this.imgFile);
-      };
-      console.log("2 " + this.imgFile);
+      var file = e.target.files[0];
     }
+    await this.getBase64(file);
+    this.labelText = e.target.files[0].name;
+  }
+
+  // Reading image
+  async getBase64(file) {
+    var reader = new FileReader();
+    try {
+      reader.readAsDataURL(file);
+    } catch (error) {
+      this.labelText = "Errore, riprova."
+    }
+    var promise = new Promise(function (resolve) {
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+    });
+    let res = "";
+    var thenedPromise = promise.then(function (value) {
+      res = value as string;
+    }); 
+    await thenedPromise;
+    this.imgFile = res;
   }
 
   upload() {
@@ -103,17 +75,6 @@ export class WhiteLabelingComponent implements OnInit {
       });
   }
 
-  // uploadFile($event) {
-  //   console.log($event.target.files[0]);
-  // }
-
   // changeLogo() {
-
   // }
 }
-
-
-
-
-
-
