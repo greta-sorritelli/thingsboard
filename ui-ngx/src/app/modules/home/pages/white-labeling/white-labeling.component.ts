@@ -69,9 +69,6 @@ export class WhiteLabelingComponent implements OnInit {
   }
 
   upload() {
-    console.log(this.whiteLabel.value);
-    console.log(this.logoC.logoPath);
-    
     this.httpClient
       .post("http://localhost:4200/java_api/file_upload.java", this.imgFile)
       .subscribe((response) => {
